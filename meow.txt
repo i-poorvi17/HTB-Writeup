@@ -1,0 +1,39 @@
+# Meow - HTB Starting Point
+
+## Overview
+- Difficulty: Very Easy
+- Category: Tier 0 / Linux
+- Concept tested: Default/no-credential service access
+
+## Recon
+- Nmap command used: sudo nmap -sV {target_address}
+- port 23/tcp open Telnet used
+-Nmap
+tells about the host.
+Not shown: 999 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+23/tcp open  telnet  Linux telnetd
+Service Info: OS: Linux;
+Service detection performed.
+Nmap done: 1 IP address (1 host up) scanned in 10.54 seconds
+
+
+## Exploitation
+- command: telnet {target_address}
+- username -root
+
+## What I Learned
+- ## What I Learned
+- Nmap is a straightforward yet powerful tool for reconnaissance — even a basic scan (`-sV -sC`) quickly reveals open ports 
+and running services, which is often the first and most important step in any assessment.
+
+- Telnet allows login with minimal or no proper authentication, which made gaining access surprisingly easy — this highlighted how a 
+single misconfigured or outdated service can create a serious security gap.
+
+- Telnet transmits data, including credentials, in plaintext with no encryption, making it vulnerable to interception 
+(e.g., via a man-in-the-middle attack or packet sniffing). This is why it's considered insecure and has largely been replaced 
+by SSH in modern systems.
+
+- This machine reinforced a fundamental lesson: attackers don't always need complex exploits — sometimes a service running with
+ weak or default configurations is enough to gain access. Proper hardening (disabling unused/legacy services) matters as much as 
+ patching vulnerabilities.
